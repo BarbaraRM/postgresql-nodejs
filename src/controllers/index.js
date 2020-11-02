@@ -6,9 +6,10 @@ const pool=new Pool({
     user: 'ntjgtnrgsjilvh',
     password: '9d9d6cf3430d0cbb534b637c8c287969b6b13891939609197eb09d0cfb0e8c41',
     database: 'dbl7ofmqucidfo',
-    port: '5432'
+    port: '5432',
+    ssl: true,dialectOptions: { "ssl": {"require":true }}
 })
-
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 const getTarea=async (req,res)=>{
 
     const respuesta=await pool.query('SELECT * FROM tarea ORDER BY _id')
